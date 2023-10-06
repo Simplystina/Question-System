@@ -6,7 +6,7 @@ var logger = require('morgan');
 const mongoose = require("mongoose");
 const dotenv = require('dotenv');
 
-var indexRouter = require('./routes/index');
+var indexRouter = require('./routes/index'); 
 var usersRouter = require('./routes/users');
 
 var app = express();
@@ -24,6 +24,16 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once('open', () => {
   console.log('Connected to MongoDB');
+});
+
+process.on('SIGINT', async () => {
+  try {
+    await mongoose.connection.close();
+    console.log('MongoDB connection closed');
+  } catch (error) {
+    console.error('Error closing MongoDB connection:', error);
+  }
+  process.exit(0);
 });
 
 // view engine setup
