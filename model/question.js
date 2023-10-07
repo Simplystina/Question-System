@@ -12,7 +12,7 @@ const questionSchema = new mongoose.Schema(
      answer: {type:string},
     },
      {
-        timestamps: true, toJSON: { virtuals: true }
+        timestamps: true, toJSON: { virtuals: true } 
     }
 
 );
