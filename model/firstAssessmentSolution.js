@@ -1,9 +1,9 @@
 const mongoose = require("mongoose")
 
 // Questions Schema
-const questionSchema = new mongoose.Schema(
+const firstAssessmentSolutionsSchema = new mongoose.Schema(
      {
-      id: {type: String, required: true},
+      id: mongoose.SchemaTypes.ObjectId,
       userId: {type:String},
       questionIds : [{id:String}],
       result: {type:String},
@@ -15,4 +15,4 @@ const questionSchema = new mongoose.Schema(
 );
 
 
-module.exports = mongoose.model('questions', questionSchema)
+module.exports = mongoose.model('firstAssessmentSolutions', firstAssessmentSolutionsSchema)
