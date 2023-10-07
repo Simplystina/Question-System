@@ -3,13 +3,10 @@ const mongoose = require("mongoose")
 // Questions Schema
 const questionSchema = new mongoose.Schema(
      {
-     id: {type: String, required: true},
-     question: {type:String},
-     optionA : {type:String},
-     optionB: {type:String},
-     optionC : {type:String},
-     optionD : {type:String},
-     answer: {type:string},
+      id: {type: String, required: true},
+      userId: {type:String},
+      questionIds : [{id:String}],
+      result: {type:String},
     },
      {
         timestamps: true, toJSON: { virtuals: true }
