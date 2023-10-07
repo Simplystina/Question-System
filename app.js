@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require("mongoose");
 const dotenv = require('dotenv');
-
+const {seedData} = require("./seed")
 var indexRouter = require('./routes/index'); 
 var usersRouter = require('./routes/users');
 
@@ -36,6 +36,10 @@ process.on('SIGINT', async () => {
   process.exit(0);
 });
 
+if (process.env.SEED_DB === 'true') {
+  // Call the seeding function
+  seedData();
+}
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
