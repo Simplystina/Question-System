@@ -4,9 +4,9 @@ const mongoose = require("mongoose")
 const firstAssessmentSolutionsSchema = new mongoose.Schema(
      {
       id: mongoose.SchemaTypes.ObjectId,
-      userId: {type:String},
-      questionIds : [{id:String}],
-      result: {type:String},
+      userId: {type:String, required: true},
+       responses : [{id:String, answer:String}],
+       grade: {type:Number},
     },
      {
         timestamps: true, toJSON: { virtuals: true }
