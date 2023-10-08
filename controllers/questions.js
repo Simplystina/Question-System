@@ -3,11 +3,11 @@ const firstAssesmentQuestions = require('../model/firstAssessmentQuestions');
 
 exports.GetQuestions = async (req, res) => {
     try {
-        const questions = await firstAssesmentQuestions.find([
+        const questions = await firstAssesmentQuestions.aggregate([
             {$sample: {size: 3}}
         ]).exec();
         const shuffledQuestions = shuffleArray(questions);
-        res.join(shuffledQuestions);
+        res.json(shuffledQuestions);
     } catch (error) {
         console.error(error);
         res.status(500).json({message: error.message});
