@@ -18,4 +18,4 @@ const firstAssessmentQuestionsSchema = new mongoose.Schema(
 );
 
 
-module.exports = mongoose.model('firstAssessmentQuestions', firstAssessmentQuestionsSchema)
+module.exports = mongoose.model('firstAssessmentQuestions', firstAssessmentQuestionsSchema);
